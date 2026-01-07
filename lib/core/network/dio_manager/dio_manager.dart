@@ -1,6 +1,12 @@
 import 'package:dio/dio.dart';
 import 'package:logger/logger.dart';
 import 'package:wallet_app_project/core/network/dio_manager/api_interceptors.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+
+final dioProvider = Provider<DioManager>((ref) {
+  return DioManager.getInstance..init();
+});
 
 class DioManager {
   DioManager._();
@@ -163,6 +169,36 @@ class DioManager {
       onReceiveProgress: (recieved, total) {
         if (total != -1) {
           Logger().i("${(recieved / total * 100).toStringAsFixed(0)}%");
+        }
+      },
+    );
+  }
+
+  Future<Response> dioUploadFile({
+    required String url,
+    required String filePath,
+    String fileKey = 'file',
+    Map<String, dynamic>? header,
+    Map<String, dynamic>? body,
+  }) async {
+    Logger().i("dioUploadFile url: $url");
+    Logger().i("dioUploadFile header: $header");
+    Logger().i("dioUploadFile body: $body");
+
+    final fileName = filePath.split('/').last;
+
+    FormData formData = FormData.fromMap({
+      ...?body,
+      fileKey: await MultipartFile.fromFile(filePath, filename: fileName),
+    });
+
+    return await _dio!.post(
+      url,
+      data: formData,
+      options: Options(headers: header),
+      onSendProgress: (count, total) {
+        if (total != -1) {
+          Logger().i("${(count / total * 100).toStringAsFixed(0)}%");
         }
       },
     );

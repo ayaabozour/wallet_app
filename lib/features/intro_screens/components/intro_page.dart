@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wallet_app_project/features/auth/screens/intro_screens/model/intro_model.dart';
+import 'package:wallet_app_project/features/intro_screens/model/intro_model.dart';
 
 class IntroPage extends StatelessWidget {
   final IntroModel page;

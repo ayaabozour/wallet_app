@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:wallet_app_project/core/config/size/app_size.dart';
-import 'package:wallet_app_project/features/auth/screens/intro_screens/provider/app_state_provider.dart';
+import 'package:wallet_app_project/features/intro_screens/provider/app_state_provider.dart';
 
 class SplashScreen extends ConsumerWidget {
   const SplashScreen({super.key});

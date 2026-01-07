@@ -1,9 +1,9 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:wallet_app_project/core/router/router_helpers.dart';
-import 'package:wallet_app_project/features/auth/screens/intro_screens/provider/app_state_provider.dart';
-import 'package:wallet_app_project/features/auth/screens/intro_screens/screens/intro_screen.dart';
-import 'package:wallet_app_project/features/auth/screens/intro_screens/screens/splash_screen.dart';
+import 'package:wallet_app_project/features/intro_screens/provider/app_state_provider.dart';
+import 'package:wallet_app_project/features/intro_screens/screens/intro_screen.dart';
+import 'package:wallet_app_project/features/intro_screens/screens/splash_screen.dart';
 import 'package:wallet_app_project/features/auth/screens/login_screen.dart';
 
 final routerProvider = Provider<GoRouter>((ref) {

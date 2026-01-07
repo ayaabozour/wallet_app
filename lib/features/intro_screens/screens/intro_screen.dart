@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:wallet_app_project/features/auth/screens/intro_screens/components/intro_dot.dart';
-import 'package:wallet_app_project/features/auth/screens/intro_screens/components/intro_page.dart';
+import 'package:wallet_app_project/features/intro_screens/components/intro_dot.dart';
+import 'package:wallet_app_project/features/intro_screens/components/intro_page.dart';
 import '../provider/intro_provider.dart';
 import '../provider/app_state_provider.dart';
 import 'package:go_router/go_router.dart';

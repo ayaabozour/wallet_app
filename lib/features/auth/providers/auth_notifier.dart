@@ -1,8 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_riverpod/legacy.dart';
 import 'package:wallet_app_project/core/network/constance_network/api_endpoints.dart';
-import 'package:wallet_app_project/core/network/providers/dio_provider.dart';
-import 'package:wallet_app_project/core/network/providers/header_provider.dart';
+import 'package:wallet_app_project/core/network/header/header_provider.dart';
 import 'package:wallet_app_project/features/auth/state/auth_state.dart';
 import '../../../core/network/token_types.dart';
 import '../../../core/services/shared_prefs.dart';
@@ -27,7 +26,7 @@ class AuthNotifier extends StateNotifier<AuthState> {
   }
 
   Future<bool> login({
-    required String email,
+    required String phone,
     required String password,
   }) async {
     state = state.copyWith(isLoading: true, error: null);
@@ -36,7 +35,7 @@ class AuthNotifier extends StateNotifier<AuthState> {
       final response = await _dio.dioPost(
         url: ApiEndpoints.login,
         body: {
-          "email": email,
+          "phone": phone,
           "password": password,
         },
         header: _headers.build(TokenType.contentType),
